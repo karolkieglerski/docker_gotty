@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "[INFO] go get gotty"
+
+/usr/local/go/bin/go get github.com/yudai/gotty
+
+echo "[INFO] gooty started. go to 127.0.0.1:8080"
+
+screen -d -m /go/bin/gotty ${gotty_var}
+
+tailf /var/run/screen/S-root/$(ls /var/run/screen/S-root/ | grep console) >&1

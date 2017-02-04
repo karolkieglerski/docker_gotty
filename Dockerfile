@@ -1,8 +1,18 @@
 FROM golang:1.6
 
-RUN mkdir -p /go/src/app
-WORKDIR /go/src/app
+ENV gotty_var multitail -i /usr/local/help
 
-RUN go get github.com/yudai/gotty
+RUN apt-get update \
+    && apt-get install -y multitail ssh screen \
+    && apt-get clean
 
-CMD ["gotty ls -al /var"]
+RUN mkdir /root/.ssh/
+
+COPY ssh/ /root/.ssh/
+
+COPY help /usr/local/help
+COPY gotty-start /usr/local/gotty-start
+
+EXPOSE 8080
+
+CMD ["/usr/local/gotty-start"]
