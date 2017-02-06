@@ -10,8 +10,8 @@ RUN mkdir /root/.ssh/
 
 COPY ssh/ /root/.ssh/
 
-COPY help /usr/local/help
-COPY gotty-start /usr/local/gotty-start
+COPY conf/help /usr/local/help
+COPY scripts/gotty-start /usr/local/gotty-start
 
 EXPOSE 8080
 
