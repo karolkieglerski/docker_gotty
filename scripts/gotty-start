@@ -1,11 +1,10 @@
 #!/bin/bash
 
-echo "[INFO] chamge permitions on ssh key file"
-chmod 600 ~/.ssh/id_rsa
-chmod 644 ~/.ssh/id_rsa.pub
-
-echo "[INFO] go get gotty"
-/usr/local/go/bin/go get github.com/yudai/gotty
+if [ -d ~/.ssh ]; then
+  echo "[INFO] chamge permitions on ssh key file"
+  chmod 600 ~/.ssh/id_rsa
+  chmod 644 ~/.ssh/id_rsa.pub
+fi
 
 echo "[INFO] gooty started. go to 127.0.0.1:8080"
 screen -d -m /go/bin/gotty ${gotty_var}
