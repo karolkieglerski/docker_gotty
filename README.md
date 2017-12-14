@@ -1,4 +1,6 @@
 # gotty docker
+
+The base application in docker is [GoTTY](https://github.com/yudai/gotty) developed by [yudai](https://github.com/yudai).
 Container has installed ```ssh``` and ```multitail``` to show logs from remote hosts.
 If you want to run for example php clone this repo and install specific app into this container.
 To able ssh connection add ssh file into container.
